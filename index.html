@@ -3,12 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Site</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para o formulário de contato (será exibido quando o botão for clicado) */
+        #formulario-contato {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #formulario-contato label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #formulario-contato input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #formulario-contato input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #formulario-contato input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #opcoes-contato {
+            margin-top: 20px;
+        }
+
+        #opcoes-contato button {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body class="bg">
     <header>
@@ -17,25 +64,54 @@
             <a href="a"></a>
             <img src="" alt="">
             <nav class="menu-desktop">
-
                 <ul>
                     <li><a href="*">Inicio</a></li>
                     <li><a href="*">Especialidades</a></li>
                     <li><a href="*">Sobre</a></li>
                     <li><a href="*">Projetos</a></li>
                 </ul>
-
-                
             </nav>
             <div class="btn-contato">
-                <a href="*">
-                    <button>Contato</button>
-                </a>
-
-
-
+                <button id="btnMostrarFormulario">Contato</button>
             </div>
-            
+        </div>
+    </header>
 
+    <!-- Formulário de Contato -->
+    <div id="formulario-contato">
+        <h2>Entre em Contato</h2>
+        <form action="#">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="Gian Kelve Da Silva" readonly>
+
+            <!-- Opções de contato -->
+            <div id="opcoes-contato">
+                <p>E-mail: s.kelve@acad.ifma.edu.br</p>
+                <button id="btnEnviarGmail">Enviar E-mail pelo Gmail</button>
+
+                <p>WhatsApp: +55 (99) 99226-4435</p>
+                <button id="btnAbrirWhatsApp">Conversar pelo WhatsApp</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("btnMostrarFormulario").addEventListener("click", function() {
+            document.getElementById("formulario-contato").style.display = "block";
+        });
+
+        document.getElementById("btnEnviarGmail").addEventListener("click", function() {
+            var email = "s.kelve@acad.ifma.edu.br";
+            var subject = "Contato via site";
+            var emailUrl = "mailto:" + email + "?subject=" + encodeURIComponent(subject);
+            window.location.href = emailUrl;
+        });
+
+        document.getElementById("btnAbrirWhatsApp").addEventListener("click", function() {
+            var telefone = "5599992264435";
+            var whatsappUrl = "https://wa.me/" + telefone;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
 </body>
 </html>
