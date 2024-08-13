@@ -1,63 +1,389 @@
-*{
+/* Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+    font-family: 'Haikyuu';
+    src: url("fonts/dimitri.TTF");
+}
+
+@font-face {
+    font-family: 'Haikyuu2';
+    src: url("fonts/dimitri2.TTF");
+}
+
+/* Reset */
+
+* {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
-    font-family: "Mochiy Pop One", sans-serif; 
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Roboto Condensed";
 }
 
-body{
-    background-color: black;
-    height: 100vg;
+ul {
+    list-style: none;
 }
 
-.interface{
-    max-width: 1280px;
-    margin: 0 auto;
+a {
+    text-decoration: none;
 }
-/*ESTILO DO CABEÇALHO    */
-header{
-    padding: 50px 4%;
+
+/* Navbar */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    padding: 5px 20px 5px 20px;
+    transition: all .3s;
+    background-color: transparent;
 }
-header > .interface{
+
+.logo {
+    max-width: 85px;
+    cursor: pointer;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links li {
+    list-style-type: none;
+    transition: all .2s ease;
+    border-radius: 3.5px;
+}
+
+.links {
+    gap: 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(255, 247, 247);
+    padding: 15px;
+    display: inline-block;
+    position: relative;
+    transition: all .215s ease;
+}
+
+.links:hover {
+    color: #ffffff;
+}
+
+.links::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #f2f3f2;
+    transform-origin: bottom left;
+    transition: transform 0.215s ease-out;
+  }
+  
+.links:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+.menu-icon i{
+    color: rgb(231, 226, 226);
+    font-size: 25px;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .menu-icon i {
+        display: block;
+    }
+}
+
+/* Banner */
+
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
+    background-color: rgb(0, 0, 0);
+}
+
+#inicio .container {
+    width: 100%
+}
+
+.container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-header a:hover{
-    transform: scale(1.2);
-}
-header a{
-    color: hsl(0, 0%, 100%);
-    text-decoration: none;
-    display: inline-block;
-    transition: .2s;
-}
-header nav ul{
-    list-style-type: none;
-}
-header nav ul li{
-    display: inline-block;
-    padding: 0 40px;
-}
-header .btn-contato button{
-    padding: 3px 40px;
-    font-size: 15px;
-    cursor: pointer;
-}
-header .btn-contato button:hover{
-    box-shadow: 0px 0px 8px;
+    margin-top: 99px;
+    height: 100%;
+    margin-right: 60px;
+    margin-left: 60px;
 }
 
-.bg{
-    background-image: url(imagem/gg.png);
-    background-repeat: no-repeat;
+.banner-title {
+    text-align: end;
+}
+
+h4 {
+    font-family: 'Haikyuu2';
+    font-weight: 300;
+    font-size: clamp(1.5rem, 1.8vw, 3rem);
+    color: rgb(13, 236, 5);
+}
+
+.title {
+    font-family: 'Haikyuu';
+    color: rgb(255, 255, 255);
+    font-size: clamp(3.5rem, 4.75vw, 5.5rem);
+}
+
+.banner-title h3 {
+    font-family: 'Haikyuu2';
+    font-size: clamp(1.5rem, 1.8vw, 3rem);
+    color: rgb(52, 247, 13);
+    text-align: start;
+}
+
+.banner-img {
+    max-width: 440px;
+    mask-image: linear-gradient(to top, transparent, rgb(255, 255, 255));
+}
+
+.banner-img img {
+    width: 100%;
+}
+
+.contacts-container {
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+}
+
+.contact {
+    color:rgb(235, 235, 235);
+    font-size: clamp(1.9rem, 2.4vw, 4rem);
+    transition: all .215s ease;
+}
+
+.contact:hover {
+    color:rgb(252, 252, 252)
+}
+
+@media (max-width: 1240px) {
+    .container {
+        margin-bottom: 45px;
+    }
+}
+
+/* Sobre mim */
+
+#sobremim {
+    background-color: rgba(214, 214, 214, 0.75);
+    background-image: url("IMG/640646-solo-leveling-sung-jin-woo-shadow-army-hd-wallpaper-download.webp");
+    background-size: cover;
+    background-position: top;
+    background-blend-mode: darken;
+}
+
+#sobremim .container {
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px
+}
+
+p {
+    color: rgb(241, 241, 241);
+    font-size: clamp(1.1rem, 1.2vw, 2rem);
+}
+
+.aboutme-title {
+    text-align: center;
+    max-width: 600px;
+}
+
+.aboutme-title p {
+    text-align: justify;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    
+}
+
+.box {
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgb(240, 240, 240);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    width: 250px;
+    height: 250px;
+    border: 2px solid rgb(235, 235, 235);
+    padding: 20px;
+    transition: all .2s;
+}
+
+.box h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.box:hover {
+    transform: scale(1.03);
+}
+
+/* Habilidades */
+
+#skills {
+    background-color: rgb(0, 0, 0);
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.skills-title h1 {
+    font-size: clamp(3rem, 4vw, 10rem);
+}
+
+.skill {
+    box-shadow: rgb(240, 240, 240) 0px 7px 29px 0px;
+    background-color: rgb(0, 0, 0);
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgb(255, 252, 252);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all .2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.skill:hover {
+    transform: scale(1.04);
+}
+
+.lvl {
+    color:rgb(202, 19, 19);
+}
+
+/* Projetos */
+
+.projects {
+    background-color: rgb(0, 0, 0);
+}
+
+.projeto {
+    box-shadow: rgb(238, 225, 225) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 270px;
+    height: 310px;
+    transition: all .2s;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid rgb(247, 247, 247);
+    color:rgb(236, 236, 236);
+}
+
+.projeto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    filter: brightness(0.5);
+    z-index: -1;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.1s ease-in;
 }
 
-/*TOPO DO SITE    */
+.projeto:hover::before {
+    opacity: 1;
+}
 
-section.topo-do-site{
-    padding: 40px 4%;
+.projeto:hover {
+    transform: scale(1.04);
+}
+
+.project-link {
+    text-decoration: none;
+    color:rgb(255, 239, 239);
+    font-size: 30px;
+    padding: 10px;
+}
+
+#projeto1::before {
+    background-image: url("IMG/640646-solo-leveling-sung-jin-woo-shadow-army-hd-wallpaper-download.webp");
+}
+
+#projeto2::before {
+    background-image: url("IMG/640646-solo-leveling-sung-jin-woo-shadow-army-hd-wallpaper-download.webp");
+}
+
+/* Rodapé */
+
+.rodape {
+    background: rgb(4, 4, 4);
+    color: rgba(63, 201, 21, 0);
+}
+
+.rodape-container {
+    display: flex;
+    flex-direction: column;
+    gap:45px;
+    padding: 65px;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+    gap: 25px;
+}
+
+.rodape-links {
+    text-decoration: none;
+    color: white;
 }
